@@ -45,10 +45,10 @@ class UsersController < ApplicationController
     counts(@user)
   end
 
-end
+  private
 
-private
+  def user_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
 
-def user_params
-  params.require(:user).permit(:name, :email, :password, :password_confirmation)
 end
